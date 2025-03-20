@@ -1,8 +1,3 @@
-# Ignore Robot Framework logs & reports
-results/
-output.xml
-log.html
-report.html
 
 # Ignore Python cache & virtual environments
 __pycache__/

@@ -67,7 +67,11 @@ https://data.rijksmuseum.nl/docs/api/collection
 
 ![Test Status](https://github.com/lsuser/Rijksmuseum_API/actions/workflows/robot-tests.yml/badge.svg)
 
-[View Allure Test Report](https://github.com/lsuser/Rijksmuseum_API/allure-results/index.html
+[View Allure Test Report](https://github.com/lsuser/Rijksmuseum_API/blob/gh-pages/allure-results/index.html)
+
+ 📊 Robot Framework Test Report
+View the latest test report [here](https://lsuser.github.io/Rijksmuseum_API/report.html).
+
 )
 
 
