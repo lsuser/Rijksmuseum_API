@@ -1,72 +1,46 @@
-name: Run Robot Framework Tests
+name: Deploy Allure Report
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🛠️ Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🐍 Set Up Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: 3.9
 
-      - name: 📦 Install Dependencies
+      - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install robotframework-requests
-          pip install allure-python-commons
+          pip install allure-pytest
 
-      - name: 📥 Install Allure CLI
+      - name: Run tests
         run: |
-          sudo apt-get update
-          sudo apt-get install -y unzip
-          curl -sLo allure-2.25.0.tgz https://github.com/allure-framework/allure2/releases/download/2.25.0/allure-2.25.0.tgz
-          tar -zxvf allure-2.25.0.tgz
-          sudo mv allure-2.25.0 /opt/allure
-          sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
+          robot --outputdir results tests/rijksmuseum_tests.robot
 
-      - name: ✅ Verify Allure Installation
+      - name: Generate Allure Report
         run: |
-          echo "Checking Allure version..."
-          which allure || echo "Allure not found!"
-          allure --version || echo "Allure command failed!"
-
-      - name: 🚀 Run Robot Framework Tests
-        run: |
-          robot --listener allure_robotframework -d results tests/rijksmuseum_tests.robot
-
-      - name: 📊 Upload Robot Test Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: robot-test-results
-          path: results/
-
-      - name: 📊 Generate Allure Report
-        run: |
-          mkdir -p allure-results
           allure generate results -o allure-results --clean
 
-      - name: 🚀 Upload Allure Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: allure-results/
-
-      - name: 🚀 Deploy Allure Report to Main Branch
+      - name: Commit and push Allure report to repository
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git checkout main
-          git add -f allure-results  # Force add the allure-results folder
+          git add -f allure-results
           git commit -m "Deploy Allure Report"
-          git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} main
-
+          git push https://github.com/${{ github.repository }}:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} main
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}

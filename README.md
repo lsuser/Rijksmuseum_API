@@ -14,14 +14,15 @@ A test automation project using **Robot Framework** to validate the **Rijksmuseu
 ---
 
 ## 📂 Project Structure
-Rijksmuseum_API/ 
-── tests/ # Robot Framework test cases 
+~~~~
+. Rijksmuseum_API
+├── tests/ # Robot Framework test cases
     ├── rijksmuseum_tests.robot
-── results/ # Test execution reports 
-── .gitignore # Ignore unnecessary files
-── requirements.txt # Dependencies (Robot Framework, RequestsLibrary)
-── README.md # Project documentation 
-
+├── results/ # Test execution reports
+├── .gitignore # Ignore unnecessary files
+├──requirements.txt # Dependencies (Robot Framework, RequestsLibrary)
+├── README.md # Project documentation~~~~ 
+~~~~
 ---
 
 ## 🔧 Setup & Installation
@@ -66,7 +67,7 @@ https://data.rijksmuseum.nl/docs/api/collection
 
 ![Test Status](https://github.com/lsuser/Rijksmuseum_API/actions/workflows/robot-tests.yml/badge.svg)
 
-[View Test Report](https://github.com/lsuser/Rijksmuseum_API/allure-results/index.html
+[View Allure Test Report](https://github.com/lsuser/Rijksmuseum_API/allure-results/index.html
 )
 
 
