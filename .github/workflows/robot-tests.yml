@@ -26,6 +26,11 @@ jobs:
           pip install -r requirements.txt
           pip install allure-pytest
 
+      - name: Install Allure command line tool
+        run: |
+          wget -qO - https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/2.14.0/allure-commandline-2.14.0.tgz | tar xz -C /opt
+          sudo ln -s /opt/allure-commandline-2.14.0/bin/allure /usr/local/bin/allure
+
       - name: Run tests
         run: |
           robot --outputdir results tests/rijksmuseum_tests.robot
