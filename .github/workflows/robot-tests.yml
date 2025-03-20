@@ -55,5 +55,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: allure-results
+          path: allure-results/
+          retention-days: 7
+
+      - name: Upload Robot Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-test-results
+          path: results/
           retention-days: 7

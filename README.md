@@ -72,6 +72,3 @@ https://data.rijksmuseum.nl/docs/api/collection
  📊 Robot Framework Test Report
 View the latest test report [here](https://github.com/lsuser/Rijksmuseum_API/blob/gh-pages/results/report.html).
 
-)
-
-
