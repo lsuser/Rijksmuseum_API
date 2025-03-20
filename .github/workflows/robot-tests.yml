@@ -68,4 +68,5 @@ jobs:
           git checkout main
           git add -f allure-results  # Force add the allure-results folder
           git commit -m "Deploy Allure Report"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} main
+          git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} main
+
