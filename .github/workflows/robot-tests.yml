@@ -27,7 +27,7 @@ jobs:
 
       - name: 🚀 Run Robot Framework Tests
         run: |
-          robot -d results tests/
+          robot --listener allure_robotframework -d results tests/rijksmuseum_tests.robot
 
       - name: 📊 Upload Robot Test Results
         uses: actions/upload-artifact@v4

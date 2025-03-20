@@ -41,26 +41,26 @@ pip install -r requirements.txt
 ```
 
 3️⃣ Run API Tests
-Run all test cases:
+Run all tests:
 ```bash
-robot -d results tests/
+robot -d results tests/rijksmuseum_tests.robot
 ```
-Run a specific test suite:
+Run  test with allure listener:
 ```bash
-robot -d results tests/collection_tests.robot
+robot --listener allure_robotframework -d results tests/rijksmuseum_tests.robot
 ```
 Run tests with tags (e.g., smoke tests):
 ```bash
 robot -d results -i smoke tests/
 ```
 
-###📊 Test Reports
+##📊 Test Reports
 Generate an Allure Report after test execution:
 ``` bash
 allure serve results/
 ```
 This opens a detailed HTML report in your browser.
 
-###📌 API Reference
+##📌 API Reference
 Rijksmuseum API Docs
 https://data.rijksmuseum.nl/docs/api/collection
