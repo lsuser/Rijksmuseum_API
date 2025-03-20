@@ -47,8 +47,4 @@ jobs:
           git checkout main
           git add -f allure-results
           git commit -m "Deploy Allure Report"
-          git push https://github.com/${{ github.repository }}:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} main
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-
-
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} main
