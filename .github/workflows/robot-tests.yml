@@ -66,6 +66,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git checkout main
-          git add allure-results
+          git add -f allure-results  # Force add the allure-results folder
           git commit -m "Deploy Allure Report"
-          git push origin main
+          git push https://github.com/${{ github.repository }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} main
+
