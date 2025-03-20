@@ -46,7 +46,7 @@ jobs:
         echo "/opt/allure/bin" >> $GITHUB_PATH
         allure serve results/allure-results
 
-      - name: 🚀 Upload Allure Results
+    - name: 🚀 Upload Allure Results
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
