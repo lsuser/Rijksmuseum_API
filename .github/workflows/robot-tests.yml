@@ -28,13 +28,17 @@ jobs:
       - name: 📥 Install Allure CLI
         run: |
           sudo apt-get update
-          sudo apt-get install -y allure
+          sudo apt-get install -y unzip
+          curl -sLo allure-2.25.0.tgz https://github.com/allure-framework/allure2/releases/download/2.25.0/allure-2.25.0.tgz
+          tar -zxvf allure-2.25.0.tgz
+          sudo mv allure-2.25.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
 
       - name: ✅ Verify Allure Installation
         run: |
           echo "Checking Allure version..."
-          which allure
-          allure --version
+          which allure || echo "Allure not found!"
+          allure --version || echo "Allure command failed!"
 
       - name: 🚀 Run Robot Framework Tests
         run: |
