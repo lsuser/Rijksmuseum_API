@@ -63,3 +63,9 @@ This opens a detailed HTML report in your browser.
 
 Rijksmuseum API Docs
 https://data.rijksmuseum.nl/docs/api/collection
+
+![Test Status](https://github.com/lsuser/Rijksmuseum_API/actions/workflows/robot-tests.yml/badge.svg)
+
+[View Test Report](https://github.com/lsuser/Rijksmuseum_API/index.html)
+
+
