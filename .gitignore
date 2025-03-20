@@ -1,0 +1,22 @@
+# Ignore Robot Framework logs & reports
+allure-results/
+results/
+output.xml
+log.html
+report.html
+# Ignore Python cache & virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# Ignore IDE settings
+.vscode/
+.idea/
+*.swp
+
+# Ignore dependency files (optional)
+pip-log.txt
+pip-delete-this-directory.txt
