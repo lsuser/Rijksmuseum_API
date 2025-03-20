@@ -50,3 +50,4 @@ jobs:
           git push https://github.com/${{ github.repository }}:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} main
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
