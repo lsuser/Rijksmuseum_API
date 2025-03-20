@@ -40,7 +40,7 @@ jobs:
           pip install allure-pytest
           pip install allure-python-commons
           mkdir -p allure-results
-          robot --listener allure_robotframework results/
+          allure serve results/allure-results
 
       - name: 🚀 Upload Allure Results
         uses: actions/upload-artifact@v4
