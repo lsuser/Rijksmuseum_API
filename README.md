@@ -15,15 +15,12 @@ A test automation project using **Robot Framework** to validate the **Rijksmuseu
 
 ## 📂 Project Structure
 Rijksmuseum_API/ 
-│ ── tests/ # Robot Framework test cases 
-│ ├── rijksmuseum_tests.robot
-│── resources/ # Variables and configuration 
-│ ├── config.json │
-│── results/ # Test execution reports 
-│── .gitignore # Ignore unnecessary files
-│── requirements.txt # Dependencies (Robot Framework, RequestsLibrary)
-│── README.md # Project documentation 
-
+── tests/ # Robot Framework test cases 
+    ├── rijksmuseum_tests.robot
+── results/ # Test execution reports 
+── .gitignore # Ignore unnecessary files
+── requirements.txt # Dependencies (Robot Framework, RequestsLibrary)
+── README.md # Project documentation 
 
 ---
 
@@ -55,6 +52,7 @@ robot -d results -i smoke tests/
 ```
 
 ##📊 Test Reports
+
 Generate an Allure Report after test execution:
 ``` bash
 allure serve results/
@@ -62,5 +60,6 @@ allure serve results/
 This opens a detailed HTML report in your browser.
 
 ##📌 API Reference
+
 Rijksmuseum API Docs
 https://data.rijksmuseum.nl/docs/api/collection

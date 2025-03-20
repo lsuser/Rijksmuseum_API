@@ -2,11 +2,13 @@
 Library    RequestsLibrary
 Library    Collections
 Library    JSONLibrary
-Resource  ../resources/config.json
 
 Suite Setup      Create Session    Rijksmuseum    ${BASE_URL}    headers=${HEADERS}
 
 *** Variables ***
+${BASE_URL}     https://www.rijksmuseum.nl/api/nl/collection
+${API_KEY}    0fiuZFh4
+${HEADERS}      {"Accept": "application/json"}
 ${VALID_OBJECT}      SK-C-5
 ${INVALID_OBJECT}    INVALID123
 ${PRODUCTION_PLACES}  Amsterdam
