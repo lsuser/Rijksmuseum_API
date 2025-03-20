@@ -40,11 +40,14 @@ jobs:
         run: |
           allure generate results -o allure-results --clean
 
-      - name: Commit and push Allure report to repository
+      - name: Commit Allure Report to gh-pages
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git checkout main
-          git add -f allure-results
+          git checkout --orphan gh-pages
+          git rm -rf .
+          cp -R allure-results/* .
+          git add .
           git commit -m "Deploy Allure Report"
-          git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} main
+          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+
