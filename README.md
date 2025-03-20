@@ -70,7 +70,7 @@ https://data.rijksmuseum.nl/docs/api/collection
 [View Allure Test Report](https://github.com/lsuser/Rijksmuseum_API/blob/gh-pages/allure-results/index.html)
 
  📊 Robot Framework Test Report
-View the latest test report [here](https://lsuser.github.io/Rijksmuseum_API/report.html).
+View the latest test report [here](https://github.com/lsuser/Rijksmuseum_API/blob/gh-pages/results/report.html).
 
 )
 

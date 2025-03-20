@@ -51,3 +51,9 @@ jobs:
           git commit -m "Deploy Allure Report"
           git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
 
+      - name: Upload Allure Report as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-results
+          retention-days: 7
