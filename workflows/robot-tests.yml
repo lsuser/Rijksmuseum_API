@@ -1,0 +1,49 @@
+name: Run Robot Framework Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛠️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 📦 Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install robotframework-requests
+          pip install allure-python-commons
+
+      - name: 🚀 Run Robot Framework Tests
+        run: |
+          robot -d results tests/
+
+      - name: 📊 Upload Robot Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-test-results
+          path: results/
+
+      - name: 📊 Generate Allure Report
+        run: |
+          pip install allure-pytest
+          pip install allure-python-commons
+          mkdir -p allure-results
+          robot --listener allure_robotframework results/
+
+      - name: 🚀 Upload Allure Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results/
