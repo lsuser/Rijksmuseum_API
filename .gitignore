@@ -1,9 +1,9 @@
 # Ignore Robot Framework logs & reports
-allure-results/
 results/
 output.xml
 log.html
 report.html
+
 # Ignore Python cache & virtual environments
 __pycache__/
 *.pyc
