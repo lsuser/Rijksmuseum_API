@@ -66,6 +66,7 @@ https://data.rijksmuseum.nl/docs/api/collection
 
 ![Test Status](https://github.com/lsuser/Rijksmuseum_API/actions/workflows/robot-tests.yml/badge.svg)
 
-[View Test Report](https://github.com/lsuser/Rijksmuseum_API/index.html)
+[View Test Report](https://github.com/lsuser/Rijksmuseum_API/allure-results/index.html
+)
 
 
