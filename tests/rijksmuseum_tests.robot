@@ -2,7 +2,7 @@
 Library    RequestsLibrary
 Library    Collections
 Library    JSONLibrary
-Variables  ../resources/config.json
+Resource  ../resources/config.json
 
 Suite Setup      Create Session    Rijksmuseum    ${BASE_URL}    headers=${HEADERS}
 
