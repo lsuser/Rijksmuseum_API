@@ -51,15 +51,15 @@ Run tests with tags (e.g., smoke tests):
 robot -d results -i smoke tests/
 ```
 
-##📊 Test Reports
+📊 Test Reports
 
 Generate an Allure Report after test execution:
 ``` bash
-allure serve results/
+allure serve results/allure-results
 ```
 This opens a detailed HTML report in your browser.
 
-##📌 API Reference
+📌 API Reference
 
 Rijksmuseum API Docs
 https://data.rijksmuseum.nl/docs/api/collection
