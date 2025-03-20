@@ -25,6 +25,16 @@ jobs:
           pip install robotframework-requests
           pip install allure-python-commons
 
+      - name: 📥 Install Allure CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y allure
+
+      - name: ✅ Verify Allure Installation
+        run: |
+          echo "Checking Allure version..."
+          allure --version
+
       - name: 🚀 Run Robot Framework Tests
         run: |
           robot --listener allure_robotframework -d results tests/rijksmuseum_tests.robot
@@ -37,14 +47,8 @@ jobs:
 
       - name: 📊 Generate Allure Report
         run: |
-          pip install allure-pytest
-          pip install allure-python-commons
           mkdir -p allure-results
-          curl -o allure-2.25.0.tgz -L https://github.com/allure-framework/allure2/releases/download/2.25.0/allure-2.25.0.tgz
-          tar -zxvf allure-2.25.0.tgz
-          sudo mv allure-2.25.0 /opt/allure
-          echo "/opt/allure/bin" >> $GITHUB_PATH
-          allure serve results/allure-results
+          allure generate results -o allure-results --clean
 
       - name: 🚀 Upload Allure Results
         uses: actions/upload-artifact@v4
